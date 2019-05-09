@@ -16,10 +16,6 @@ function removeFirstelement(arr, i = 0) {
 removeFirstelement([1,2,3,4,5]);
 
 // 2.Given an array of nested arrays. Write a recursive function that flattens it. (Hint create function that concats arrays).
-
-
-//let arr =[[1,5],3,[3,4,[1,2]],10,[11,12,13]];
-
 let arr =[1,[3,4,[1,2]],10];
 
 function flatArray (arr, res =[]){
@@ -39,6 +35,7 @@ function flatArray (arr, res =[]){
 		return res;
 	}
 }
+  flatArray(arr);
 // 3. Given a number. Write a function that calculates its sum of the digits and
 //if that sum has more than 1 digit find the sum of
 //digits of that number. Repeat that process if needed and return
@@ -49,7 +46,7 @@ function calcSumDig(number) {
 	return calcSumDig( +Array.from(String(number)).reduce( (s, d) => +s + +d) );
 
 }
-calcSumDig(14);
+  calcSumDig(14);
 
 //4. Given an array and a number N.  Write a recursive
 //function that rotates an array N places to the left. (Hint: to
@@ -76,12 +73,12 @@ function invertObj(obj) {
 	for(let k in obj) {
 		let key = k, val = obj[k];
 		if( obj.hasOwnProperty(obj[k]) ) {
-			delete obj[k];
-			if( Array.isArray(obj[val]) ) {
-					obj[val] = obj[val].concat(key);
-				} else {
-					obj[val] = Array.from(obj[val]).concat(key);
-				}
+		delete obj[k];
+		if( Array.isArray(obj[val]) ) {
+				obj[val] = obj[val].concat(key);
+			} else {
+				obj[val] = Array.from(obj[val]).concat(key);
+			}
 		} else {
 			delete obj[k];
 			obj[val] = key;
